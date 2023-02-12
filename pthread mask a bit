@@ -1,0 +1,17 @@
+#include<pthread.h>
+#include<stdio.h>
+void *evenorodd(void *aruguments)
+{
+   int n=15,pos=3,pos1=1;
+   int a=((1<<pos-1)-1);
+   int b=n>>pos1-1;
+    
+    int k=a&b;
+    printf("%d",k);
+}
+int main()
+{
+    pthread_t thread1;
+    pthread_create(&thread1,NULL,evenorodd,NULL);
+    pthread_join(thread1,NULL);
+}
